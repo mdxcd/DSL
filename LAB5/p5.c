@@ -32,20 +32,23 @@ int main(){
     scanf("%s", str);
     
     int i = 0;
+    int flag = 1;
     while (str[i] != '\0'){
-        if (str[i] == '(')
+        if (str[i] == '(' || str[i] == '{' || str[i] == '[')
         PUSH(str[i]);
+        else if (str[i] == ')' || str[i] == '}' || str[i] == ']'){
+            char popped = POP();
+            if ((str[i] == ')' && popped != '(') ||
+                (str[i] == '}' && popped != '{') ||
+                (str[i] == ']' && popped != '[')) {
+                flag = 0;
+                break;
+            }
+        }
         i++;
     }
 
-    int j = 0;
-    while (str[j] != '\0'){
-        if (str[j] == ')')
-        POP();
-        j++;
-    }
-
-    if (TOP == -1) printf("Brackets are balanced");
-    else printf("Brackets are not balanced");
+    if (TOP == -1 && flag == 1) printf("Brackets are balanced\n");
+    else printf("Brackets are not balanced\n");
     return 0;
 }

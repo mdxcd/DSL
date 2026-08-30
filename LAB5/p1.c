@@ -47,7 +47,7 @@ void POP(){
 }
 
 int main(){
-    int choice;
+    int choice, value;
     printf("1. Check if the stack is empty\n");
     printf("2. Display the contents of stack\n");
     printf("3. PUSH Element\n");
@@ -69,7 +69,6 @@ int main(){
             break;
 
         case 3:
-            int value;
             printf("Enter new element: ");
             scanf("%d", &value);
             PUSH(value);
