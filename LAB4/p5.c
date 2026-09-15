@@ -1,4 +1,4 @@
-// 5. WAP for merging two sorted linked list into one sorted single linked list.
+// 5. WAP for merging two sorted linked list into one sorted single linked list
 
 #include <stdio.h>
 #include <stdlib.h>

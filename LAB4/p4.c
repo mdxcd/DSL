@@ -1,4 +1,4 @@
-// 4. WAP for concatenation of two double linked list.
+// 4. WAP for concatenation of two double linked list
 
 #include <stdio.h>
 #include <stdlib.h>
