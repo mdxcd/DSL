@@ -33,11 +33,13 @@ void dequeue(){
         return;
     } else if (front == rear){
         temp = front;
+        printf("Dequeued Element: %d\n", temp->data);
         front = NULL;
         rear = NULL;
         free(temp);
     } else {
         temp = front;
+        printf("Dequeued Element: %d\n", temp->data);
         front = front->next;
         free(temp);
     }
@@ -72,14 +74,13 @@ int isEmpty(){
 }
 
 int main(){
-    int choice;
+    int choice, value;
     printf("1. Enqueue\n2. Dequeue\n3. Peek\n4. Display\n5. IsEmpty\n6. Exit\n");
     while(1){
         printf("Enter your choice: ");
         scanf("%d", &choice);
         switch(choice){
             case 1:
-                int value;
                 printf("Enter value to enqueue: ");
                 scanf("%d", &value);
                 enqueue(value);
