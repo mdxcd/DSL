@@ -10,11 +10,9 @@ struct node {
 };
 
 struct node *front = NULL;
-struct node *rear = NULL;
 
 void enqueue(int p, int value){
-    struct node *new;
-    new = (struct node *) malloc(sizeof(struct node));
+    struct node *new = (struct node *) malloc(sizeof(struct node));
     new->priority = p;
     new->data = value;
     new->next = NULL;
@@ -22,9 +20,6 @@ void enqueue(int p, int value){
     if (front == NULL || p < front->priority){
         new->next = front;
         front = new;
-        if (rear == NULL){
-            rear = new;
-        }
     } else {
         struct node *ptr = front;
         while (ptr->next != NULL && ptr->next->priority <= p){
@@ -36,59 +31,51 @@ void enqueue(int p, int value){
 }
 
 void dequeue(){
-    struct node *temp;
-    if (front == NULL && rear == NULL){
+    if (front == NULL){
         printf("UNDERFLOW\n");
         return;
-    } else if (front == rear){
-        temp = front;
-        front = NULL;
-        rear = NULL;
-        free(temp);
-    } else {
-        temp = front;
-        front = front->next;
-        free(temp);
     }
+    struct node *temp = front;
+    printf("Dequeued Element: %d\n", temp->data);
+    front = front->next;
+    free(temp);
 }
 
 void peek(){
-    if (front == NULL && rear == NULL){
+    if (front == NULL){
         printf("Queue is Empty\n");
         return;
-    } else {
-        printf("First Element: %d\n", front->data);
     }
+    printf("First Element: %d\n", front->data);
 }
 
 void display(){
-    if (front == NULL && rear == NULL){
+    if (front == NULL){
         printf("Queue is Empty\n");
         return;
-    } else {
-        struct node *ptr = front;
-        while( ptr != NULL){
-            printf("%d ", ptr->data);
-            ptr = ptr->next;
-        }
+    }
+    struct node *ptr = front;
+    while (ptr != NULL){
+        printf("%d ", ptr->data);
+        ptr = ptr->next;
     }
     printf("\n");
 }
 
 int isEmpty(){
-    if (front == NULL && rear == NULL) return 1;
+    if (front == NULL) return 1;
     else return 0;
 }
 
 int main(){
     int choice;
+    int value, priority;
     printf("1. Enqueue\n2. Dequeue\n3. Peek\n4. Display\n5. IsEmpty\n6. Exit\n");
     while(1){
         printf("Enter your choice: ");
         scanf("%d", &choice);
         switch(choice){
             case 1:
-                int value, priority;
                 printf("Enter value's priority: ");
                 scanf("%d", &priority);
                 printf("Enter value to enqueue: ");
