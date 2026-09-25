@@ -1,7 +1,9 @@
 // 1. WAP to construct a binary tree using array and traverse the binary tree
 
 #include <stdio.h>
-int tree[31];
+#include <stdlib.h>
+int *tree = NULL;
+int size;
 
 void set_root(int val){
     tree[0] = val;
@@ -17,7 +19,7 @@ void set_right_child(int val, int parent){
 
 void display(){
     printf("Tree Nodes: ");
-    for (int i=0; i<31; i++){
+    for (int i=0; i<size; i++){
         printf("%d ", tree[i]);
     }
     printf("\n");
@@ -34,7 +36,12 @@ void count_leaf(){
 }
 
 int main(){
-    for (int i=0; i<31; i++){
+    printf("Enter Tree Size: ");
+    scanf("%d", &size);
+
+    tree = (int *) malloc(size*sizeof(int));
+
+    for (int i=0; i<size; i++){
         tree[i] = -1;
     }
 
