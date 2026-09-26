@@ -26,11 +26,12 @@ struct node *create(){
     return new;
 }
 
-int count_leaf(struct node *ptr, int count){
+int count_leaf(struct node *ptr){
+    if(ptr == NULL)
+        return 0;
     if(ptr->left_child == NULL && ptr->right_child == NULL)
-        return count++;
-    count = count_leaf(ptr->left_child, count);
-    count += count_leaf(ptr->right_child, count);
+        return 1;
+    return count_leaf(ptr->left_child) + count_leaf(ptr->right_child);
 }
 
 int main(){
@@ -39,7 +40,7 @@ int main(){
     printf("For No Node -> Enter -1\n");
     printf("Enter Root Node: ");
     root = create();
-    count = count_leaf(root, count);
+    count = count_leaf(root);
     printf("Total Leaf Nodes = %d\n", count);
     return 0;
 }
