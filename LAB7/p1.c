@@ -25,16 +25,6 @@ void display(){
     printf("\n");
 }
 
-void count_leaf(){
-    int count = 0;
-    for (int i=0; i<31; i++){
-        if( (tree[i] != -1) && (tree[(2*i)+1] == -1) && (tree[(2*i)+2] == -1) ){
-            count++;
-        }
-    }
-    printf("Total Leaf Nodes = %d\n", count);
-}
-
 int main(){
     printf("Enter Tree Size: ");
     scanf("%d", &size);
@@ -54,6 +44,5 @@ int main(){
     set_right_child(70,2);
 
     display();
-    count_leaf();
     return 0;
 }
