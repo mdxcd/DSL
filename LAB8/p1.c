@@ -5,7 +5,7 @@ WAP in C to create a BST thaat includes the following function
 4. find_min
 5. find_max
 6. InOrder, PreOrder, PostOrder
-using the main function, 
+using the main function, show the working of all these functions.
 */
 
 #include <stdio.h>
@@ -20,8 +20,6 @@ struct node {
 struct node *create_node(int value){
     struct node *new;
     new = (struct node *) malloc(sizeof(struct node));
-    scanf("%d", &value);
-
     new->data = value;
     new->left_child = NULL;
     new->right_child = NULL;
@@ -60,6 +58,39 @@ struct node* find_max(struct node *root){
     return root;
 }
 
+struct node* delete_node(struct node *root, int value){
+    if (root == NULL){
+        printf("Node not found\n");
+        return NULL;
+    }
+    if (value < root->data){
+        root->left_child = delete_node(root->left_child, value);
+    } else if (value > root->data){
+        root->right_child = delete_node(root->right_child, value);
+    
+    } else {
+        if (root->left_child == NULL && root->right_child == NULL){
+            free(root);
+            return NULL;
+        }
+        else if (root->left_child == NULL){
+            struct node *temp = root->right_child;
+            free(root);
+            return temp;
+        } else if (root->right_child == NULL){
+            struct node *temp = root->left_child;
+            free(root);
+            return temp;
+        }
+        else {
+            struct node *temp = find_min(root->right_child);
+            root->data = temp->data;
+            root->right_child = delete_node(root->right_child, temp->data);
+        }
+    }
+    return root;
+}
+
 void InOrder(struct node *ptr){
     if(ptr == NULL){
         return;
@@ -88,16 +119,30 @@ void PostOrder(struct node *ptr){
 }
 
 int main(){
-    struct node *root;
-    printf("For No Node -> Enter -1\n");
-    printf("Enter Root Node: ");
-    root = create();
+    struct node *root = NULL;
+    
+    root = insert_node(root, 20);
+    root = insert_node(root, 10);
+    root = insert_node(root, 30);
+    root = insert_node(root, 5);
+    root = insert_node(root, 15);
+    root = insert_node(root, 25);
+    root = insert_node(root, 35);
+
+    root = delete_node(root, 20);
+    root = delete_node(root, 10);
+
+    printf("Minimum Element: %d\n", find_min(root)->data);
+    printf("Maximum Element: %d\n", find_max(root)->data);
+    
     printf("InOrder Traversal: ");
     InOrder(root);
     printf("\n");
+
     printf("PreOrder Traversal: ");
     PreOrder(root);
     printf("\n");
+
     printf("PostOrder Traversal: ");
     PostOrder(root);
     printf("\n");
