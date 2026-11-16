@@ -8,16 +8,20 @@ A collection of C programs, terminal execution outputs, and formatted PDF lab re
 
 ```text
 .
-├── LAB1/           # Dynamic Arrays & Structures
-├── LAB2/           # Polynomials & Sparse Matrix Triplet Representation
-├── LAB3/           # Singly Linked Lists
-├── LAB4/           # Doubly Linked Lists, Merging & Circular Linked Lists
-├── LAB5/           # Stack Applications
+├── LAB1/           # Dynamic Arrays & Structures (+ PDF & outputs/)
+├── LAB2/           # Polynomials & Sparse Matrix Triplet Representation (+ PDF & outputs/)
+├── LAB3/           # Singly Linked Lists (+ PDF & outputs/)
+├── LAB4/           # Doubly Linked Lists, Merging & Circular Linked Lists (+ PDF & outputs/)
+├── LAB5/           # Stack Applications (+ PDF & outputs/)
 ├── LAB6/           # Linear, Circular & Priority Queues (+ PDF & outputs/)
-├── LAB7/           # Binary Trees
-├── LAB8/           # Binary Search Tree
-├── Practice/       
-└── SESSIONAL/      # Sessional Exam
+├── LAB7/           # Binary Trees (+ PDF & outputs/)
+├── LAB8/           # Binary Search Tree (+ PDF & outputs/)
+├── Practice/       # Practice implementations (Graphs, Searching, Sorting, Trees)
+│   ├── Graphs/
+│   ├── Searching/
+│   ├── Sorting/
+│   └── Trees/
+└── SESSIONAL/      # Sessional Exam Program
 ```
 
 ---
@@ -79,10 +83,33 @@ A collection of C programs, terminal execution outputs, and formatted PDF lab re
 - [`p1.c`](LAB8/p1.c) — Binary Search Tree implementation with `insert_node`, `delete_node`, `find_min`, `find_max`, `InOrder`, `PreOrder`, and `PostOrder`
 - **Report:** [`LAB8 - Md Mobid - 2505031.pdf`](LAB8/LAB8%20-%20Md%20Mobid%20-%202505031.pdf)
 
-### [Practice](Practice/) & [SESSIONAL](SESSIONAL/)
-- [`Practice/p1.c`](Practice/p1.c) — Linear search
-- [`Practice/p2.c`](Practice/p2.c) — Binary search
-- [`SESSIONAL/p.c`](SESSIONAL/p.c) — Menu-driven queue using array (`enqueue`, `dequeue`, `peek`, `display`)
+---
+
+## Practice & Sessional
+
+### [Practice](Practice/)
+
+#### [Graphs](Practice/Graphs/)
+- [`bfs.c`](Practice/Graphs/bfs.c) — Breadth-First Search (BFS) using adjacency matrix and queue
+- [`dfs.c`](Practice/Graphs/dfs.c) — Depth-First Search (DFS) using adjacency matrix and stack
+
+#### [Searching](Practice/Searching/)
+- [`linear.c`](Practice/Searching/linear.c) — Linear search
+- [`binary.c`](Practice/Searching/binary.c) — Binary search
+
+#### [Sorting](Practice/Sorting/)
+- [`bubble.c`](Practice/Sorting/bubble.c) — Bubble sort
+- [`insertion.c`](Practice/Sorting/insertion.c) — Insertion sort
+- [`selection.c`](Practice/Sorting/selection.c) — Selection sort
+- [`heap.c`](Practice/Sorting/heap.c) — Heap sort
+- [`merge.c`](Practice/Sorting/merge.c) — Merge sort
+- [`quick.c`](Practice/Sorting/quick.c) — Quick sort
+
+#### [Trees](Practice/Trees/)
+- [`tree_traversal.c`](Practice/Trees/tree_traversal.c) — Non-recursive (iterative) InOrder, PreOrder, and PostOrder traversals
+
+### [SESSIONAL](SESSIONAL/)
+- [`p.c`](SESSIONAL/p.c) — Menu-driven queue using array (`enqueue`, `dequeue`, `peek`, `display`)
 
 ---
 
